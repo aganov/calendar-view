@@ -1,0 +1,5 @@
+The Calendar widget is a JavaScript-based calendar that can either be embedded within a page or popup when a trigger element is clicked. It is based very loosely on the Dynarch Calendar and 
+CalendarView for Prototype
+
+More about CalendarView: http://calendarview.org/
+More about Dynarch Calendar: http://www.dynarch.com/projects/calendar/old/
