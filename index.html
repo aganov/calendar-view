@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>CalendarView for jQuery by Alex Ganov</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+		<link rel="stylesheet" href="../stylesheets/blueprint/screen.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="../stylesheets/blueprint/print.css" type="text/css" media="print" />
+		<!--[if IE]><link rel="stylesheet" href="../stylesheets/blueprint/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+		<link rel="stylesheet" href="https://raw.github.com/aganov/calendar-view/master/jquery.calendar.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://raw.github.com/aganov/calendar-view/master/jquery.calendar.js"></script>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#date-input-1').calendar();
+				$('#date-input-2').calendar({
+					triggerElement: '#date-input-2-trigger'
+				});
+				$('#date-input-3').calendar({
+					parentElement: '#date-input-3-container',
+					dateFormat: '%d.%m.%Y'
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+<a href="https://github.com/aganov/calendar-view"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://assets1.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_darkblue_121621.png&path=" alt="Fork me on GitHub"></a>
+		<div class="container">
+			<br />
+
+			<div id="header" class="span-24 last">
+				<h1>CalendarView for jQuery <small class="alt">by Alex Ganov</small></h1>
+			</div>
+			<hr />
+			<p class="notice">
+				The Calendar widget is a JavaScript-based calendar that can either be embedded within a
+				page or popup when a trigger element is clicked. It is based very loosely on the Dynarch Calendar and
+				CalendarView for Prototype<br />
+				<br />
+				More about CalendarView: <a href="http://calendarview.org/">http://calendarview.org/</a><br />
+				More about Dynarch Calendar: <a href="http://www.dynarch.com/projects/calendar/old/">http://www.dynarch.com/projects/calendar/old/</a>
+			</p>
+			<h4>Fork calendar-view on github: <a href="https://github.com/aganov/calendar-view">https://github.com/aganov/calendar-view</a></h4>
+
+			<h2>Download</h2>
+			<ul>
+				<li><a href="https://github.com/aganov/calendar-view/tarball/master">calendarview-v1.2.tar.gz</a>  — CalendarView 1.2 Full Package</li>
+				<li><a href="https://github.com/aganov/calendar-view/blob/master/jquery.calendar.js">jquery.calendar.js</a>  — CalendarView 1.2 JavaScript</li>
+				<li><a href="https://github.com/aganov/calendar-view/blob/master/jquery.calendar.css">jquery.calendar.css</a>  — Default Stylesheet</li>
+			</ul>
+			<hr />
+
+			<h2>Installation</h2>
+			<div>
+        <p>Simply include the lines below in your head element (jQuery >= 1.3.2 is required)</p>
+				<code>
+					&lt;link rel=&quot;stylesheet&quot; href=&quot;jquery.calendar.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; /&gt;<br />
+					&lt;script type=&quot;text/javascript&quot; src=&quot;jquery.calendar.js&quot;&gt;&lt;/script&gt;<br />
+					&lt;script type=&quot;text/javascript&quot;&gt;<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;// Calendar Setup code<br />
+					&lt;/script&gt;<br />
+				</code>
+			</div>
+			<br />
+			<hr />
+
+			<h2>Example calendar setup</h2>
+			<div class="span-10 colborder">
+				<h3>1. Pop-up calendar</h3>
+				<label>Click inside of input field to show calendar
+					<input type="text" class="text" id="date-input-1" value="2009-05-21" />
+				</label><br />
+<pre>$(document).ready(function() {
+    $('#date-input-1').calendar();
+});</pre>
+			</div>
+
+			<div class="span-11">
+				<h3>2. Pop-up calendar with trigger element</h3>
+				<label>Click on calendar icon to show calendar
+					<input type="text" class="text" id="date-input-2" />
+				</label>
+				<img src="../images/icon-calendar.png" id="date-input-2-trigger" alt="cal" style="vertical-align: middle; cursor: pointer;" /><br />
+<pre>$(document).ready(function() {
+    $('#date-input-2').calendar({
+        triggerElement: '#date-input-2-trigger'
+    });
+});</pre>
+			</div>
+			<hr />
+
+			<div class="span-6 colborder">
+				<h3>3. Embeded calendar</h3>
+				<div id="date-input-3-container"></div><br />
+			</div>
+			<div class="span-10">
+				<h4>Calendar date</h4>
+				<span class="box large" id="date-input-3">20.05.2010</span>
+				<br /><br />
+<pre>$(document).ready(function() {
+    $('#date-input-3').calendar({
+        parentElement: '#date-input-3-container',
+        dateFormat: '%d.%m.%Y'
+    });
+});</pre>
+			</div>
+			<hr />
+			<h2>Calendar Options</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Option</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>triggerElement</td>
+						<td>An HTML element (or DOM ID) that will be observed for clicks to display a popup calendar.
+							If a triggerElement is not specified, the dateField will be observed instead.
+						</td>
+					</tr>
+					<tr>
+						<td>parentElement</td>
+						<td>An HTML element (or DOM ID) that will receive the initialized embedded calendar. </td>
+					</tr>
+					<tr>
+						<td>firstDayOfWeek</td>
+						<td>specifies which day is to be displayed as the first day of week. Possible values are 0 to 6;
+							0 means Sunday, 1 means Monday, ..., 6 means Saturday.
+						</td>
+					</tr>
+					<tr>
+						<td>dateFormat</td>
+						<td>The format of the date to be displayed in the input field.</td>
+					</tr>
+
+					<tr>
+						<td>selectHandler</td>
+						<td>JavaScript function that will be called when a date is selected. Only define this if you want
+							to override the default behavior.
+						</td>
+					</tr>
+					<tr>
+						<td>closeHandler</td>
+						<td>JavaScript function that will be called when the calendar should be closed (either after a
+							selection has been made or if the user clicked outside of the calendar's container element).
+							This only applies to popup calendars and should only be defined if you want to override the
+							default behavior.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<script type="text/javascript">
+				$('table.table tr:nth-child(even)').addClass('even');
+			</script>
+			<hr />
+
+			<h2>Example calendar HTML</h2>
+<pre class="box">
+&lt;div class=&quot;calendar popup&quot;&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;title&quot; colspan=&quot;7&quot;&gt;May 2009&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;td class=&quot;button&quot; unselectable=&quot;on&quot;&gt;&laquo;&lt;/td&gt;
+        &lt;td class=&quot;button&quot; unselectable=&quot;on&quot;&gt;&lsaquo;&lt;/td&gt;
+        &lt;td colspan=&quot;3&quot; class=&quot;button&quot; unselectable=&quot;on&quot;&gt;Today&lt;/td&gt;
+        &lt;td class=&quot;button&quot; unselectable=&quot;on&quot;&gt;&rsaquo;&lt;/td&gt;
+        &lt;td class=&quot;button&quot; unselectable=&quot;on&quot;&gt;&raquo;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Mo&lt;/th&gt;
+        &lt;th&gt;Tu&lt;/th&gt;
+        &lt;th&gt;We&lt;/th&gt;
+        &lt;th&gt;Th&lt;/th&gt;
+        &lt;th&gt;Fr&lt;/th&gt;
+        &lt;th class=&quot;weekend&quot;&gt;Sa&lt;/th&gt;
+        &lt;th class=&quot;weekend&quot;&gt;Su&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr class=&quot;days&quot;&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;27&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;28&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;29&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;30&lt;/td&gt;
+        &lt;td&gt;1&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;2&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;3&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;days&quot;&gt;
+        &lt;td&gt;4&lt;/td&gt;
+        &lt;td&gt;5&lt;/td&gt;
+        &lt;td&gt;6&lt;/td&gt;
+        &lt;td&gt;7&lt;/td&gt;
+        &lt;td&gt;8&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;9&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;10&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;days&quot;&gt;
+        &lt;td&gt;11&lt;/td&gt;
+        &lt;td&gt;12&lt;/td&gt;
+        &lt;td&gt;13&lt;/td&gt;
+        &lt;td&gt;14&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;16&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;17&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;days&quot;&gt;
+        &lt;td&gt;18&lt;/td&gt;
+        &lt;td&gt;19&lt;/td&gt;
+        &lt;td&gt;20&lt;/td&gt;
+        &lt;td&gt;21&lt;/td&gt;
+        &lt;td&gt;22&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;23&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;24&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;days&quot;&gt;
+        &lt;td&gt;25&lt;/td&gt;
+        &lt;td&gt;26&lt;/td&gt;
+        &lt;td class=&quot;selected today&quot;&gt;27&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+        &lt;td&gt;29&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;30&lt;/td&gt;
+        &lt;td class=&quot;weekend&quot;&gt;31&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr class=&quot;days&quot; style=&quot;display: none;&quot;&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;1&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;2&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;3&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;4&lt;/td&gt;
+        &lt;td class=&quot;otherDay&quot;&gt;5&lt;/td&gt;
+        &lt;td class=&quot;otherDay weekend&quot;&gt;6&lt;/td&gt;
+        &lt;td class=&quot;otherDay weekend&quot;&gt;7&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;
+</pre>
+			<hr />
+			<blockquote id="footer">CalendarView for jQuery by Alex Ganov. Layout powered by <a href="http://www.blueprintcss.org/">Blieprint CSS Framework</a></blockquote>
+		</div>
+	</body>
+</html>
