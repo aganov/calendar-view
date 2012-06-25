@@ -206,7 +206,7 @@
 		}
 
 		// Update dateField value
-		(calendar.dateField.attr('tagName') == 'INPUT')
+		(calendar.dateField.get(0).tagName == 'INPUT')
 			? calendar.dateField.val(calendar.date.print(calendar.dateFormat))
 			: calendar.dateField.html(calendar.date.print(calendar.dateFormat));
 
